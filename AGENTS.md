@@ -1,6 +1,6 @@
 # AGENTS.md
 
-`rundom-react` is the React port of [Rundom UI](https://github.com/d8corp/rune-hub-dom): a theme-driven UI component library built with React 19, TypeScript and InnetJS. The original implementation lives in `/tmp/rundom-src` and is the reference for behaviour, markup and theme class names.
+`rundom-react` is the React port of [Rundom UI](https://github.com/d8corp/rune-hub-dom): a theme-driven UI component library built with React 19, TypeScript and InnetJS. The [original implementation](https://github.com/d8corp/rune-hub-dom) is the reference for behaviour, markup and theme class names.
 
 ## Rules
 
