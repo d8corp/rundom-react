@@ -1,0 +1,80 @@
+@use "src/docs/styles/proximityGlow" as *;
+
+.root {
+  margin-bottom: 32px;
+  font-size: 14px;
+}
+
+.header {
+  background: var(--color-bg);
+  position: sticky;
+  top: calc(var(--header-size) - 2px);
+  padding-top: 10px;
+  margin-bottom: 56px;
+  color: #a9b7c6;
+  z-index: 1;
+}
+
+.title {
+  font-size: 18px;
+  color: var(--rd__root_color-muted);
+  border: 1px solid var(--rd--secondary-border);
+  background: light-dark(var(--rd-color-bg-elevated), var(--rd-color-bg-surface));
+  border-radius: 16px 16px 0 0;
+  height: 48px;
+
+  .glow & {
+    border: none;
+    position: relative;
+    @include proximityGlow;
+  }
+}
+
+.titleText {
+  font-size: 12px;
+}
+
+.code {
+  padding: 20px;
+  border: 1px solid var(--rd--secondary-border);
+  border-top: none;
+  background: light-dark(var(--rd-color-bg-contrast), var(--rd-color-bg-deep));
+  border-radius: 0 0 16px 16px;
+  margin-top: -56px;
+
+  .glow & {
+    border: none;
+    position: relative;
+    @include proximityGlow(0 1px 1px);
+  }
+}
+
+.tabs {
+  margin: -12px -16px -20px;
+  font-size: 12px;
+  height: 38px;
+  min-width: 0;
+}
+
+.tab {
+  cursor: pointer;
+  padding: 10px 16px;
+  border-bottom: 2px solid transparent;
+  transition: color .2s, border .2s;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+  max-width: fit-content;
+  line-height: 1em;
+
+  &:hover {
+    color: var(--rd__primary_background-hover);
+  }
+}
+
+.selected {
+  color: var(--rd__primary_background);
+  border-bottom-color: var(--rd__primary_background);
+}

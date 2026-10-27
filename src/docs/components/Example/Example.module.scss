@@ -1,0 +1,29 @@
+.wrapper {
+  width: 100%;
+  max-width: 100%;
+}
+
+.content {
+  width: 100%;
+  max-width: 100%;
+  align-items: flex-start;
+}
+
+.description {
+  flex: 0 0 320px;
+  width: 320px;
+  max-width: 100%;
+}
+
+.demo {
+  flex: 1;
+  min-width: 0;
+  max-width: 100%;
+}
+
+@media (max-width: 1023px) {
+  .description {
+    flex: none;
+    width: 100%;
+  }
+}

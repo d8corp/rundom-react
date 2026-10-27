@@ -1,0 +1,98 @@
+{
+  "name": "rundom-react",
+  "version": "0.0.1",
+  "description": "Rundom UI and rundom utils for React",
+  "type": "module",
+  "main": "index.mjs",
+  "module": "index.mjs",
+  "esnext": "index.mjs",
+  "jsnext:main": "index.mjs",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs"
+    }
+  },
+  "bin": {
+    "rundom-react-theme": "bin/theme"
+  },
+  "sideEffects": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "innetjs release -i index -tc -lc -e",
+    "build:docs": "innetjs build -i docs/index -e -tc -lc",
+    "build:theme": "innetjs run src/bin/theme.ts -e",
+    "start": "innetjs start -i docs/index -e -tc -lc",
+    "dev": "npm run build:theme && innetjs start -i docs/index -e",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "release": "npm run build:theme && innetjs release -i index -p -tc -lc -e"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d8corp/rundom-react.git"
+  },
+  "keywords": [
+    "rundom",
+    "react",
+    "ui",
+    "components",
+    "design-system",
+    "front-end"
+  ],
+  "author": "Mikhail Lysikov <d8corp@mail.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/d8corp/rundom-react/issues"
+  },
+  "homepage": "https://github.com/d8corp/rundom-react",
+  "peerDependencies": {
+    "react": ">=18.2.0",
+    "react-dom": ">=18.2.0"
+  },
+  "dependencies": {
+    "@textlint/ast-node-types": "^13.3.2",
+    "@textlint/markdown-to-ast": "^13.3.2",
+    "commander": "^15.0.0",
+    "cssnano": "^9.9.0",
+    "dotenv": "^18.0.9",
+    "postcss": "^8.5.6",
+    "postcss-selector-parser": "^7.1.7",
+    "sass": "^1.106.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^22.18.0",
+    "@types/prismjs": "^1.26.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "core-js": "^3.30.2",
+    "eslint": "^9.39.5",
+    "eslint-import-resolver-typescript": "^4.4.5",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jest": "^29.16.0",
+    "eslint-plugin-simple-import-sort": "^14.0.0",
+    "eslint-plugin-unused-imports": "^4.4.1",
+    "identity-obj-proxy": "^3.0.0",
+    "innetjs": "^4.0.0-beta.8",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1",
+    "neostandard": "^0.14.1",
+    "prismjs": "^1.30.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "ts-jest": "^29.4.12",
+    "ts-jest-mock-import-meta": "^1.3.2",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.66.0",
+    "typescript-plugin-css-modules": "^5.2.0"
+  }
+}

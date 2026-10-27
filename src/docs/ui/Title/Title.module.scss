@@ -1,0 +1,44 @@
+.root {
+  transition: opacity .2s, transform .2s;
+
+  @starting-style {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+}
+
+.subTitle {
+  color: var(--rd__root_color-muted);
+  width: 100%;
+  font-size: 16px;
+  font-style: normal;
+  text-transform: none;
+  font-weight: normal;
+}
+
+.withLink {
+  scroll-margin-top: calc(var(--scroll-top) + 16px);
+}
+
+.link {
+  margin-left: 6px;
+  margin-bottom: auto;
+  transition: opacity .2s;
+  opacity: 0;
+
+  .root:hover > & {
+    opacity: 1;
+  }
+
+  h1 > & {
+    margin-left: 16px;
+  }
+
+  h2 > & {
+    margin-left: 12px;
+  }
+
+  h3 > & {
+    margin-left: 10px;
+  }
+}

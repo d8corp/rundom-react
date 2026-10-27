@@ -1,0 +1,126 @@
+@use "src/docs/styles/proximityGlow" as *;
+
+@keyframes banner {
+  from {
+    --rd-glow-y-offset: calc(0vh + var(--header-size));
+  }
+  to {
+    --rd-glow-y-offset: -100vh;
+  }
+}
+
+.banner {
+  text-align: center;
+  height: calc(100vh - var(--header-size));
+  max-height: 1024px;
+  transition: background .2s;
+  background:
+          radial-gradient(ellipse 80% 50% at 20% 40%, rgba(139, 92, 246, 0.12), transparent),
+          radial-gradient(ellipse 60% 40% at 80% 60%, rgba(244, 114, 182, 0.08), transparent),
+          radial-gradient(ellipse 50% 50% at 50% 0%, rgba(251, 146, 60, 0.05), transparent),
+          radial-gradient(circle at 100px 100px, rgba(139, 92, 246, .08) 100px, transparent 350px),
+          var(--rd-color-bg-deep);
+
+  &::before {
+    --rd-proximity-x: calc(var(--cursor-x, -999px) - var(--rd-glow-x-offset, 0px));
+    --rd-proximity-y: calc(var(--cursor-y, -999px) - var(--rd-glow-y-offset, 0px));
+
+    animation-timeline: view(block 0 calc(100% - var(--header-size)));
+    animation-timing-function: linear;
+    animation-name: banner;
+
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: fixed linear-gradient(var(--rd__primary_background) 1px, transparent 1px),
+    fixed linear-gradient(90deg, var(--rd__primary_background) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, #00000009 30%, transparent 80%);
+
+    @supports (animation-timeline: view()) {
+      mask-image: radial-gradient(ellipse at center, #00000009 30%, transparent 80%),
+      radial-gradient(
+              circle 100px at var(--rd-proximity-x) var(--rd-proximity-y),
+              black 0%,
+              #0007 30%,
+              transparent 100%
+      );
+    }
+  }
+}
+
+.content {
+  max-width: 800px;
+  position: relative;
+}
+
+.version {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--rd--alpha-color);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--rd__primary_background_hover);
+  margin-bottom: 24px;
+  backdrop-filter: blur(4px);
+}
+
+.title {
+  transform-origin: center center;
+}
+
+.code {
+  backdrop-filter: blur(4px);
+}
+
+.description {
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: var(--rd__root_color-muted);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 36px;
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.section {
+  width: 100%;
+  max-width: 1100px;
+}
+
+.features {
+  width: 100%;
+  max-width: 1100px;
+}
+
+.featureTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.featureText {
+  font-size: 14px;
+  color: var(--rd__root_color-muted);
+  margin: 0;
+}
+
+.cta {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  padding: 48px 24px;
+  border-radius: 24px;
+  background: var(--rd-color-bg-surface);
+  border: 1px solid var(--rd--secondary-border);
+}
+

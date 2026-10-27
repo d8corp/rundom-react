@@ -1,0 +1,56 @@
+::view-transition-group(menu-layout-buttons) {
+  z-index: 1;
+}
+
+.root {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.main {
+  order: 0;
+  min-width: 0;
+
+  &:empty {
+    margin-bottom: 9999px;
+  }
+}
+
+.buttons {
+  position: sticky;
+  bottom: 12px;
+  margin: 0 auto;
+  background: var(--color-bg);
+  padding: 8px;
+  border-radius: 32px;
+  z-index: 1;
+  view-transition-name: menu-layout-buttons;
+
+  &:empty {
+    padding: 0;
+  }
+}
+
+.button {
+  font-size: 24px;
+  padding: 12px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: var(--rd__root_color-muted);
+  cursor: pointer;
+  transition: .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: var(--rd--alpha-color);
+    color: var(--rd__root_color);
+  }
+
+  &:active {
+    background: var(--rd--secondary-border);
+  }
+}

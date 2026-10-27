@@ -1,0 +1,10 @@
+.idea
+node_modules
+.dsh-meow
+
+# build artifacts
+/release
+/docs
+/coverage
+/bin
+*.log

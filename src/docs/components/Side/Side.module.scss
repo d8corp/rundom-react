@@ -1,0 +1,131 @@
+@use "src/docs/styles/proximityGlow" as *;
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+
+    @supports not (-apple-pay-button-style: black) {
+      filter: blur(8px);
+    }
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100px);
+    filter: blur(8px);
+  }
+}
+
+::view-transition-old(side):only-child {
+  animation: hide .2s ease both;
+}
+
+::view-transition-new(side):only-child {
+  animation: show .2s ease both;
+}
+
+.root {
+  order: -1;
+  width: 260px;
+  position: sticky;
+  top: calc(40px + var(--header-size));
+  max-height: calc(100vh - var(--header-size) - 80px);
+  padding-top: 18px;
+
+  @media (max-width: 801px) {
+    view-transition-name: side;
+    position: fixed;
+    top: var(--header-size);
+    left: 0;
+    bottom: 0;
+    max-height: none;
+    background: var(--rd-color-bg-deep);
+    padding: 58px 24px 0;
+    width: 309px;
+    z-index: 1;
+
+    @include proximityGlow(0 1px 0 0);
+
+    & > .background {
+      width: 100vw;
+      left: 100%;
+      top: 0;
+      bottom: 0;
+      opacity: .3;
+      background: var(--rd-color-bg-deep);
+    }
+  }
+}
+
+.background {
+  position: absolute;
+  opacity: 0;
+  transition: opacity .2s;
+  cursor: pointer;
+}
+
+.scrollbar {
+  padding-bottom: 80px;
+  padding-right: 8px;
+
+  @media (min-width: 802px) {
+    view-transition-name: side;
+  }
+}
+
+.empty {
+  font-size: 13px;
+  color: var(--rd__root_color-muted);
+}
+
+.group {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--rd__root_color);
+}
+
+.item {
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: var(--rd__root_color-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  position: relative;
+  border: 1px solid transparent;
+
+  @media (min-width: 802px) {
+    border: none;
+    @include proximityGlow;
+  }
+
+  &:before {
+    display: none;
+  }
+}
+
+.itemSelected {
+  background: var(--rd--alpha-color);
+  color: var(--rd__primary_background_hover);
+  border-color: light-dark(#7C3AED1F, #8B5CF61F);
+
+  &:before {
+    display: block;
+  }
+}

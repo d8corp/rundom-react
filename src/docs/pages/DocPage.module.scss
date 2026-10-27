@@ -1,0 +1,152 @@
+.root {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.article {
+  width: 100%;
+
+  h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin: 48px 0 16px;
+  }
+
+  h3 {
+    font-size: 18px;
+    margin: 32px 0 12px;
+  }
+
+  p,
+  li {
+    color: var(--rd__root_color-muted);
+  }
+
+  p {
+    margin: 0 0 16px;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 16px;
+    padding-left: 24px;
+  }
+
+  li {
+    margin-bottom: 6px;
+  }
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  table {
+    margin-bottom: 24px;
+  }
+}
+
+.lead {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--rd__root_color-muted);
+  margin: 0 0 24px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+
+.iconCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 8px;
+  border-radius: 12px;
+  background: var(--rd-color-bg-surface);
+  font-size: 12px;
+  color: var(--rd__root_color-muted);
+}
+
+.icon {
+  font-size: 24px;
+  color: var(--rd__primary_background_hover);
+}
+
+.scrollDemo {
+  height: 160px;
+  width: 100%;
+  max-width: 420px;
+  padding: 12px;
+  border: 1px solid var(--rd--secondary-border);
+  border-radius: 12px;
+}
+
+.scrollLine {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--rd-color-bg-surface);
+  font-size: 14px;
+}
+
+.windowDemo {
+  width: 100%;
+  max-width: 520px;
+}
+
+.windowBody {
+  padding: 24px;
+  font-size: 14px;
+  color: var(--rd__root_color-muted);
+}
+
+.formRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.fieldDemo {
+  width: 260px;
+  max-width: 100%;
+}
+
+.dividerDemo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.dividerDemo > span {
+  font-size: 13px;
+  color: var(--rd__root_color-muted);
+}

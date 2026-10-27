@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="apple-mobile-web-app-title" content="Rundom React" />
+    <title>Rundom React</title>
+    <script type="module" defer src="/rundom-react/index.js"></script>
+    <style>
+        :root {
+            --color-bg: light-dark(#fff, #161626);
+        }
+        body {
+            padding: 0;
+            background: var(--color-bg);
+        }
+
+        #main-loader {
+            height: 9999px;
+            transition: opacity .2s;
+        }
+        #main-loader > img {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+<div id="main-loader"><img src="/rundom-react/loading.svg" alt="Loading" /></div>
+<div id="root"></div>
+<script>
+    document.body.style.colorScheme = localStorage.getItem('theme') || 'light dark'
+</script>
+</body>
+</html>
