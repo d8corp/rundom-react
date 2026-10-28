@@ -100,7 +100,7 @@ SCSS selectors are mapped to env keys:
 | Typography | `Typography`, `Text`, `Markdown` |
 | Popup | `Message`, `Window`, `WindowHeader`, `WindowContent` |
 | Icons | `BaseIcon`, `SearchIcon`, `CheckIcon`, `CloseIcon`, `MoonIcon`, `SunIcon`, and more |
-| Helpers | `message`, `addUiCSS`, `viewTransition`, `useStyles`, `cn` |
+| Helpers | `message`, `addUiCSS`, `viewTransition`, `useStyles` |
 
 ## Docs
 

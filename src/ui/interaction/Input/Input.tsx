@@ -1,9 +1,10 @@
+import { classes } from 'html-classes'
 import type { ChangeEvent, Ref } from 'react'
 import { useEffect, useRef, useState } from 'react'
 
 import { useStyles } from '../../../hooks'
 import type { Merge } from '../../../types'
-import { addUiCSS, cn } from '../../../utils'
+import { addUiCSS } from '../../../utils'
 import type { FieldProps } from '../../block'
 import { Field } from '../../block'
 import { CloseIcon } from '../../icons'
@@ -121,7 +122,7 @@ export function Input ({
       view='bordered'
       interact='hoverable'
       {...props}
-      className={{ ...styles, root: cn(styles.root) }}
+      className={{ ...styles, root: classes(styles.root) }}
       after={(
         <>
           {clearable && Boolean(currentValue) && (

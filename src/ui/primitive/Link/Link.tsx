@@ -1,8 +1,9 @@
+import { classes } from 'html-classes'
 import type { MouseEvent } from 'react'
 
 import { useStyles } from '../../../hooks'
 import type { HTMLStyleProps, Merge } from '../../../types'
-import { addUiCSS, cn } from '../../../utils'
+import { addUiCSS } from '../../../utils'
 
 if (import.meta.env?.RD_THEME_LINK) {
   addUiCSS(import.meta.env.RD_THEME_LINK, 'link')
@@ -48,7 +49,7 @@ export function Link ({
     <a
       {...props}
       aria-disabled={disabled || undefined}
-      className={cn(styles.root)}
+      className={classes(styles.root)}
       href={disabled ? undefined : props.href}
       rel={rel ?? (props.href?.startsWith('http') ? 'noopener noreferrer' : undefined)}
       target={target ?? (props.href?.startsWith('http') ? '_blank' : undefined)}

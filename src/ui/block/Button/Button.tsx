@@ -1,9 +1,10 @@
+import { classes } from 'html-classes'
 import type { MouseEvent } from 'react'
 import { useState } from 'react'
 
 import { useStyles } from '../../../hooks'
 import type { Merge, SMLSize } from '../../../types'
-import { addUiCSS, cn } from '../../../utils'
+import { addUiCSS } from '../../../utils'
 import type { BoxProps, BoxSize } from '../../primitive'
 import { Box, Spin } from '../../primitive'
 
@@ -98,7 +99,7 @@ export function Button ({
       interact={isDisabled ? undefined : interact}
       color={disabled ? 'disabled' : color}
       size={buttonSizeMap[size]}
-      className={{ ...styles, root: cn(styles.root, isLoading && styles.loading) }}
+      className={{ ...styles, root: classes([styles.root, isLoading && styles.loading]) }}
       disabled={element === 'button' ? isDisabled : undefined}
       aria-disabled={element === 'a' && isDisabled ? true : undefined}
       onClick={handleClick}

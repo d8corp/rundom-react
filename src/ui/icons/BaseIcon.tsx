@@ -1,5 +1,6 @@
+import { classes } from 'html-classes'
+
 import type { HTMLStyleProps, Merge } from '../../types'
-import { cn } from '../../utils'
 
 export type BaseIconProps = Merge<HTMLStyleProps<'svg'>, {
   size?: number | string
@@ -20,7 +21,7 @@ export function BaseIcon ({ size = '1em', class: classProp, className, style, ..
       strokeLinecap='round'
       strokeLinejoin='round'
       {...props}
-      className={cn(classProp, className) || undefined}
+      className={classes([classProp, className]) || undefined}
       style={{
         minWidth: minSize,
         minHeight: minSize,

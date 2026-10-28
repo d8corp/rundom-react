@@ -1,8 +1,9 @@
+import { classes } from 'html-classes'
 import type { ReactNode } from 'react'
 
 import { useStyles } from '../../../hooks'
 import type { Merge, SMLSize } from '../../../types'
-import { addUiCSS, cn } from '../../../utils'
+import { addUiCSS } from '../../../utils'
 import type { BoxProps, BoxSize } from '../../primitive'
 import { Box } from '../../primitive'
 
@@ -62,7 +63,7 @@ export function Field ({
       element='label'
       {...props}
       size={fieldSizeMap[size]}
-      className={{ ...styles, root: cn(styles.root) }}
+      className={{ ...styles, root: classes(styles.root) }}
     >
       {before}
       <span className={styles.content}>

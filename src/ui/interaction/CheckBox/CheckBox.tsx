@@ -1,9 +1,10 @@
+import { classes } from 'html-classes'
 import type { ChangeEvent, Ref } from 'react'
 import { useEffect, useRef } from 'react'
 
 import { useStyles } from '../../../hooks'
 import type { Merge } from '../../../types'
-import { addUiCSS, cn } from '../../../utils'
+import { addUiCSS } from '../../../utils'
 import type { BoxProps } from '../../primitive'
 import { Box } from '../../primitive'
 
@@ -75,7 +76,7 @@ export function CheckBox ({
       interact={disabled ? undefined : 'clickable'}
       {...props}
       color={disabled ? 'disabled' : color ?? 'primary'}
-      className={{ ...styles, root: cn(styles.root, checked === null && styles.indeterminate) }}
+      className={{ ...styles, root: classes([styles.root, checked === null && styles.indeterminate]) }}
     >
       <input
         type='checkbox'

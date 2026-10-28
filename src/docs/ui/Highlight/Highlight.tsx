@@ -1,3 +1,4 @@
+import { classes } from 'html-classes'
 import Prism from 'prismjs'
 import type { ReactNode } from 'react'
 import { useEffect, useRef, useState } from 'react'
@@ -17,7 +18,6 @@ import {
   TypeScriptIcon,
   Typography,
 } from '../../../ui'
-import { cn } from '../../../utils'
 import $styles from './Highlight.module.scss'
 
 const icons: Record<string, ReactNode> = {
@@ -89,7 +89,7 @@ export function Highlight ({
           </Button>
         </Flex>
       </Flex>
-      <div className={cn(styles.code)}>
+      <div className={classes(styles.code)}>
         <pre className={`language-${lang}`} ref={preRef} />
       </div>
     </Flex>

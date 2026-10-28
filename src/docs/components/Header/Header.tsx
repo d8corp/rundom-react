@@ -1,5 +1,6 @@
+import { classes } from 'html-classes'
+
 import { Button, Flex, Link, MonitorIcon, MoonIcon, SunIcon } from '../../../ui'
-import { cn } from '../../../utils'
 import { useTheme } from '../../hooks'
 import { usePath } from '../../router'
 import styles from './Header.module.scss'
@@ -25,7 +26,7 @@ export function Header () {
             <Link
               key={item.href}
               href={item.href}
-              className={cn(styles.link, path.startsWith(item.href) && item.href !== '/quick-start' && styles.active)}
+              className={classes([styles.link, path.startsWith(item.href) && item.href !== '/quick-start' && styles.active])}
             >
               {item.label}
             </Link>

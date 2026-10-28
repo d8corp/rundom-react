@@ -1,6 +1,7 @@
+import { classes } from 'html-classes'
+
 import type { FlexProps } from '../../../ui'
 import { Flex, Markdown, Typography } from '../../../ui'
-import { cn } from '../../../utils'
 import { useMediaQuery } from '../../hooks'
 import { Highlight } from '../../ui'
 import { View } from '../../ui/View'
@@ -18,7 +19,7 @@ export function Example ({ description, code, lang = 'tsx', title = 'Example', c
   const isLaptop = useMediaQuery('(max-width: 1023px)')
 
   return (
-    <Flex padding={[32, 24]} {...props} className={cn(styles.wrapper, classProp, className)}>
+    <Flex padding={[32, 24]} {...props} className={classes([styles.wrapper, classProp, className])}>
       <Flex gap={32} align='flex-start' vertical={isLaptop} className={styles.content}>
         <Typography className={styles.description}>
           <Markdown text={description} />

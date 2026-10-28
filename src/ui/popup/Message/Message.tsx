@@ -1,6 +1,8 @@
+import { classes } from 'html-classes'
+
 import { useStyles } from '../../../hooks'
 import type { Merge } from '../../../types'
-import { addUiCSS, cn } from '../../../utils'
+import { addUiCSS } from '../../../utils'
 import type { FlexProps } from '../../primitive'
 import { Flex } from '../../primitive'
 
@@ -38,7 +40,7 @@ export function Message ({
   return (
     <Flex
       {...props}
-      className={cn(styles.root, styles[type], timeout ? styles.timeout : undefined)}
+      className={classes([styles.root, styles[type], timeout ? styles.timeout : undefined])}
     />
   )
 }

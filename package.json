@@ -61,6 +61,7 @@
     "commander": "^15.0.0",
     "cssnano": "^9.9.0",
     "dotenv": "^18.0.9",
+    "html-classes": "^2.0.2",
     "postcss": "^8.5.6",
     "postcss-selector-parser": "^7.1.7",
     "sass": "^1.106.1"

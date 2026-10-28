@@ -1,6 +1,8 @@
+import { classes } from 'html-classes'
+
 import { useStyles } from '../../../hooks'
 import type { HTMLStyleProps, Merge, SMLSize } from '../../../types'
-import { addUiCSS, cn } from '../../../utils'
+import { addUiCSS } from '../../../utils'
 
 if (import.meta.env?.RD_THEME_DIVIDER) {
   addUiCSS(import.meta.env.RD_THEME_DIVIDER, 'divider')
@@ -36,7 +38,7 @@ export function Divider ({
   return (
     <hr
       {...props}
-      className={cn(styles.root, styles[size], vertical && styles.vertical, flush && styles.flush)}
+      className={classes([styles.root, styles[size], vertical && styles.vertical, flush && styles.flush])}
     />
   )
 }

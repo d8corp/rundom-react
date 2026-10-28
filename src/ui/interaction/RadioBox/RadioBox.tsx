@@ -1,9 +1,10 @@
+import { classes } from 'html-classes'
 import type { ChangeEvent, Ref } from 'react'
 import { useRef } from 'react'
 
 import { useStyles } from '../../../hooks'
 import type { Merge } from '../../../types'
-import { addUiCSS, cn } from '../../../utils'
+import { addUiCSS } from '../../../utils'
 import type { BoxProps } from '../../primitive'
 import { Box } from '../../primitive'
 
@@ -64,7 +65,7 @@ export function RadioBox ({
       interact={disabled ? undefined : 'clickable'}
       {...props}
       color={disabled ? 'disabled' : color ?? 'primary'}
-      className={{ ...styles, root: cn(styles.root) }}
+      className={{ ...styles, root: classes(styles.root) }}
     >
       <input
         type='radio'

@@ -1,10 +1,10 @@
+import { classes } from 'html-classes'
 import type { ElementType } from 'react'
 import { useEffect } from 'react'
 
 import { useStyles } from '../../../hooks'
 import type { HTMLStyleProps } from '../../../types'
 import { Link, LinkIcon } from '../../../ui'
-import { cn } from '../../../utils'
 import { slugify } from '../../slugify'
 import $styles from './Title.module.scss'
 
@@ -50,7 +50,7 @@ export function Title ({
     <H
       {...props}
       id={id}
-      className={cn(styles.root, title && link && styles.withLink)}
+      className={classes([styles.root, title && link && styles.withLink])}
       style={style}
     >
       {children}

@@ -1,8 +1,9 @@
+import { classes } from 'html-classes'
 import type { CSSProperties } from 'react'
 
 import { useStyles } from '../../../hooks'
 import type { GlobalCSSValue, Merge, SMLSize } from '../../../types'
-import { addUiCSS, cn } from '../../../utils'
+import { addUiCSS } from '../../../utils'
 import type { FlexProps } from '../../primitive'
 import { Flex } from '../../primitive'
 
@@ -47,7 +48,7 @@ export function Scrollbar ({
         ...style,
         overflow: overflow as CSSProperties['overflow'],
       }}
-      className={cn(styles.root, styles[size], stable && styles.stable)}
+      className={classes([styles.root, styles[size], stable && styles.stable])}
     />
   )
 }

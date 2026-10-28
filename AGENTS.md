@@ -9,15 +9,17 @@
 - Every component folder is `src/ui/<layer>/<Name>/` with `<Name>.tsx` and `index.ts` (`export * from './Name'`).
 - Theme CSS comes exclusively from `theme.scss` compiled into `.env.theme`. Components read class names from `import.meta.env.RD_THEME_*` and inject their CSS once with `addUiCSS`.
 - Do not add component `.scss` files to the library. Use the existing theme classes.
-- Merge theme classes with user classes with `useStyles(styles, class ?? className)` and `cn(...)`.
+- Merge theme classes with user classes with `useStyles(styles, class ?? className)` and `classes(...)` from `html-classes`.
 - No unnecessary comments. Public APIs may have short JSDoc.
 - Keep imports sorted (simple-import-sort rules are enforced).
 
 ## Core conventions
 
 ```tsx
+import { classes } from 'html-classes'
+
 import { useStyles } from '../../../hooks'
-import { addUiCSS, cn } from '../../../utils'
+import { addUiCSS } from '../../../utils'
 
 if (import.meta.env?.RD_THEME_BOX) {
   addUiCSS(import.meta.env.RD_THEME_BOX, 'box')
@@ -30,14 +32,14 @@ export const boxStyles = {
 
 export function Box ({ ... }) {
   const styles = useStyles(boxStyles, classProp ?? className)
-  const root = cn(styles.root, styles[color], styles[view])
+  const root = classes([styles.root, styles[color], styles[view]])
 
   return <Flex {...props} className={root} />
 }
 ```
 
 - `useStyles(styles, className)` returns a copy of `styles` with `root` merged with the user class.
-- `cn` accepts strings, arrays and truthy-key objects.
+- `classes` accepts strings, arrays and truthy-key objects; class args also accept functions.
 - Env key mapping: `.box_square-left` → `RD_THEME_BOX__SQUARE_LEFT`; `.window-header` → `RD_THEME_WINDOW_HEADER`.
 - Theme helpers: `addUiCSS(css, name)`, `viewTransition(fn)`, `message(text, props)`.
 

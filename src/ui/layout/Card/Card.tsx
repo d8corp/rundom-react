@@ -1,6 +1,8 @@
+import { classes } from 'html-classes'
+
 import { useStyles } from '../../../hooks'
 import type { Merge, SMLSize } from '../../../types'
-import { addUiCSS, cn } from '../../../utils'
+import { addUiCSS } from '../../../utils'
 import type { FlexProps } from '../../primitive'
 import { Flex } from '../../primitive'
 
@@ -41,7 +43,7 @@ export function Card ({
   return (
     <Flex
       {...props}
-      className={cn(styles.root, styles[size], clickable && styles.clickable)}
+      className={classes([styles.root, styles[size], clickable && styles.clickable])}
       onClick={onClick}
       style={{
         ...style,

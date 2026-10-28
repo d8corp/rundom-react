@@ -1,7 +1,7 @@
+import { classes } from 'html-classes'
 import { useState } from 'react'
 
 import { Flex, Input, Link, Scrollbar, SearchIcon } from '../../../ui'
-import { cn } from '../../../utils'
 import { usePath } from '../../router'
 import type { MenuGroup } from '../../types'
 import styles from './Side.module.scss'
@@ -48,7 +48,7 @@ export function Side ({ menu, onClose }: SideProps) {
                   key={item.href}
                   href={item.href}
                   onClick={onClose}
-                  className={cn(styles.item, path === item.href && styles.itemSelected)}
+                  className={classes([styles.item, path === item.href && styles.itemSelected])}
                 >
                   {item.children}
                 </Link>

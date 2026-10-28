@@ -1,9 +1,11 @@
+import { classes } from 'html-classes'
+
 import type { FlexElement, FlexProps } from '../Flex'
 import { Flex } from '../Flex'
 
 import { useStyles } from '../../../hooks'
 import type { HTMLElementTagName, Merge, RDColor, SMLSize } from '../../../types'
-import { addUiCSS, cn } from '../../../utils'
+import { addUiCSS } from '../../../utils'
 
 export type BoxSize = SMLSize | 'xs' | 'xxs' | 'xl' | 'xxl'
 export type BoxView = 'filled' | 'bordered' | 'ghost' | 'dashed'
@@ -65,7 +67,7 @@ export function Box<T extends FlexElement = 'div'> ({
 }: BoxProps<T>) {
   const styles = useStyles(boxStyles, classProp ?? className)
 
-  const root = cn(
+  const root = classes([
     styles.root,
     styles[color],
     styles[view],
@@ -75,7 +77,7 @@ export function Box<T extends FlexElement = 'div'> ({
       ? styles.squareLeft
       : square === 'right' ? styles.squareRight : square && styles.square,
     circle && styles.circle,
-  )
+  ])
 
   return <Flex {...props as FlexProps<T>} className={root} />
 }
